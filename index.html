@@ -62,7 +62,7 @@
 
         .cardsss img {
             width: 100%;
-            height: auto;
+            height: 200px;
             border-radius: 8px;
             max-width: 200px;
             margin-bottom: 10px;
@@ -228,7 +228,7 @@
         <!-- Product Card 4 -->
         <div class="col-md-4 col-sm-6 col-12 mb-4">
             <div class="cardsss">
-                <img src="OIP.webp" alt="product">
+                <img src="OIP.webp" alt="product" height="40px">
                 <h5>Samsung S22 Ultra</h5>
                 <p>Latest model with advanced features</p>
                 <h3>260,000</h3>
@@ -265,7 +265,7 @@
 <div class="container mt-5" id="ffff">
     <h2 class="text-center">Contact Us</h2>
     
-    <form action="submit_form.php" method="POST">
+    <form>
         <div class="mb-3">
             <label for="name" class="form-label">Full Name:</label>
             <input type="text" class="form-control" id="name" name="name" required>
@@ -287,7 +287,7 @@
         </div>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-primary mb-4">Submit</button>
+            <button type="submit" class="btn btn-primary mb-4" id="bbbtnnn">Submit</button>
         </div>
     </form>
 </div>
@@ -296,12 +296,24 @@
     <footer>
         <p>&copy; 2026 Your Company. All Rights Reserved.</p>
         <p>
-            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#ffff">Contact Us</a>
         </p>
     </footer>
    
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+      <!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $("form").submit(function(){
+        alert("Form successfully submitted!");
+        this.reset();
+    });
+});
+</script>
+
 
 </body>
 </html>
