@@ -160,8 +160,10 @@
 
 <div id="services" class="container-fluid mt-5">
     <h2 class="text-center mb-4">Our Products</h2>
-    <div class="row" id="productContainer"></div>
-</div>
+    
+    <div class="row" id="productContainer">
+        <!-- Product cards will be dynamically inserted here -->
+    </div>
 
 <!-- contact form -->
 
@@ -190,10 +192,8 @@
         </div>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-primary mb-4" id="bbbtnnn">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-    </form>
-</div>
 
 <!-- footer -->
     <footer>
@@ -209,32 +209,38 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
+    
 $(document).ready(function(){
     $("form").submit(function(){
         alert("Form successfully submitted!");
         this.reset();
     });
-});
 
-$(document).ready(function(){
-    let cardHTML = '';
+    const products = [
+        {image: 'download.webp', title: 'samsung S25 ultra', description: 'Description for product 1', price: '300000'},
+        {image: 'S24-Ultra-Black-cellmart.webp', title: 'samsung S24 ultra', description: 'Description for product 2', price: '$20'},
+        {image: 'OIP.jfif', title: 'samsung S23 ultra', description: 'Description for product 3', price: '$30'},
+        {image: 'OIP.webp', title: 'samsung S22 ultra', description: 'Description for product 4', price: '$40'},
+    ];
+    const productContainer = $('#productContainer');
+    products.forEach(product => {
+        const productCard = `
+            <div class="col-6 col-md-3 mb-4">
+                <div class="cardsss">
+                    <img src="${product.image}" alt="${product.title}">
 
-    for(let i = 1; i <= 60; i++){
-        cardHTML += `
-        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-3">
-            <div class="cardsss">
-                <img src="download.webp" alt="product">
-                <h5>Samsung Model ${i}</h5>
-                <p>Latest features</p>
-                <h3>${180000 + i}</h3>
-                <button>Buy Now</button>
+                    <h5>${product.title}</h5>
+                    <p>${product.description}</p>
+                    <h3>${product.price}</h3>
+                    <button class="btn btn-primary">Buy Now</button>
+                </div>
             </div>
-        </div>
         `;
-    }
-
-    $("#productContainer").html(cardHTML);
+        productContainer.append(productCard);
+    });
 });
+
+
 </script>
 
 
